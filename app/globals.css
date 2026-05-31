@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
+/* Class-based dark mode */
+@variant dark (&:where(.dark, .dark *));
+
+/* === Raw CSS tokens (toggled by .dark class) === */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #F5F7FF;
+  --surface-1: #FFFFFF;
+  --surface-2: #EEF2FF;
+  --border-c: #E2E8F4;
+  --primary: #4F46E5;
+  --accent: #9333EA;
+  --text-c: #0F172A;
+  --muted: #64748B;
 }
 
+.dark {
+  --bg: #080D1A;
+  --surface-1: #0F1629;
+  --surface-2: #151D35;
+  --border-c: #1E2A47;
+  --primary: #6366F1;
+  --accent: #A855F7;
+  --text-c: #F0F4FF;
+  --muted: #8892AB;
+}
+
+/* === Tailwind v4 theme tokens === */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-bg: var(--bg);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border-c);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-text: var(--text-c);
+  --color-muted: var(--muted);
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text-c);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
