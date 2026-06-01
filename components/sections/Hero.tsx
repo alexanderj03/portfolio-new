@@ -98,8 +98,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.9 }}
           className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Building elegant, performant web applications with modern technologies.
-          CS student graduating 2026 — passionate about clean code and great UX.
+          CS grad from UNSW (2025). I like solving hard problems by picking them apart, building something that actually fixes them, and explaining it in a way that clicks for people.
         </motion.p>
 
         <motion.div

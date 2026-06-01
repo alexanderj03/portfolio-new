@@ -140,12 +140,12 @@ export default function About() {
               <p className="text-text leading-relaxed">
                 CS graduate from UNSW (2025), passionate about building elegant
                 software that solves real problems. Background in full-stack
-                development, team leadership, and customer-facing roles — I bring
+                development, team leadership, and customer-facing roles where I bring
                 both technical depth and strong people skills.
               </p>
               <p className="text-muted leading-relaxed">
                 When I&apos;m not coding, I&apos;m exploring new technologies or finding
-                ways to make complex things feel simple.
+                new ways to make life easier.
               </p>
             </div>
 
