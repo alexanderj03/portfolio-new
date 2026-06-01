@@ -11,7 +11,7 @@ const ITEMS = [
     org: "Optus",
     period: "April 2024 – Present",
     desc: "Consistently exceeded monthly sales KPIs through consultative selling and tailored tech solutions. Resolved complex billing, device, and plan issues. Trusted to manage escalated customer concerns.",
-    tags: ["Sales", "Customer Service", "Retail"],
+    tags: ["Consultative Selling", "Conflict Resolution", "CRM", "Product Knowledge"],
   },
   {
     type: "work" as const,
@@ -19,7 +19,7 @@ const ITEMS = [
     org: "Elevate Tuition",
     period: "Jan 2022 – Dec 2024",
     desc: "Led and mentored a team of tutors, coordinating schedules and program operations across multiple subjects. Developed tailored learning strategies and acted as primary contact for academic and operational challenges.",
-    tags: ["Leadership", "Mentoring", "Operations"],
+    tags: ["Team Management", "Curriculum Design", "Scheduling", "Mentorship"],
   },
   {
     type: "work" as const,
@@ -27,7 +27,7 @@ const ITEMS = [
     org: "Woolworths Group",
     period: "Feb 2022 – Aug 2023",
     desc: "Delivered consistent customer service in a fast-paced retail environment during high-volume trading periods. Maintained store standards and collaborated closely with team members.",
-    tags: ["Retail", "Customer Service", "Teamwork"],
+    tags: ["Time Management", "Collaboration", "Stock Management"],
   },
   {
     type: "work" as const,
@@ -35,7 +35,7 @@ const ITEMS = [
     org: "Australian Electoral Commission",
     period: "Jan 2022 – Dec 2023",
     desc: "Organised voting information to ensure smooth vote counting operations. Collaborated within a large team requiring strong communication and coordination.",
-    tags: ["Government", "Data", "Coordination"],
+    tags: ["Data Organisation", "Process Compliance", "Cross-team Communication"],
   },
   {
     type: "edu" as const,
@@ -43,7 +43,7 @@ const ITEMS = [
     org: "UNSW",
     period: "2022 – 2025",
     desc: "Strong foundation in software development, data structures, and algorithms. Built full-stack applications using React, SQL, and Next.js. Worked across Java, Python, and JavaScript.",
-    tags: ["CS", "Full Stack", "Algorithms"],
+    tags: ["React", "Next.js", "SQL", "Python", "Java", "Data Structures & Algorithms"],
   },
   {
     type: "edu" as const,
@@ -51,7 +51,7 @@ const ITEMS = [
     org: "Canley Vale High School",
     period: "2016 – 2021",
     desc: "Successfully completed the Higher School Certificate.",
-    tags: ["HSC"],
+    tags: [],
   },
 ];
 
@@ -99,16 +99,18 @@ function TimelineCard({
         </div>
         <p className="text-xs text-muted mb-3 font-mono">{item.period}</p>
         <p className="text-sm text-muted leading-relaxed mb-4">{item.desc}</p>
-        <div className="flex flex-wrap gap-1.5">
-          {item.tags.map((tag) => (
-            <span
-              key={tag}
-              className="font-mono text-xs px-2 py-1 bg-surface-2 text-muted rounded-md border border-border"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        {item.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {item.tags.map((tag) => (
+              <span
+                key={tag}
+                className="font-mono text-xs px-2 py-1 bg-surface-2 text-muted rounded-md border border-border"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </motion.div>
 
       {/* Center node */}
@@ -130,7 +132,6 @@ function TimelineCard({
 export default function Experience() {
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const sectionInView = useInView(sectionRef, { once: true });
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 80%", "end 20%"],
