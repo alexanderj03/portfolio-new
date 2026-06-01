@@ -108,7 +108,7 @@ export default function Contact() {
                 <span className="text-sm">github.com/alexanderj03</span>
               </a>
               <a
-                href="https://linkedin.com/in/alexanderjiw"
+                href="https://www.linkedin.com/in/alexander-jiw-2a568822a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-muted hover:text-text transition-colors duration-200 group cursor-pointer"
